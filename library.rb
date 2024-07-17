@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require './book.rb'
 
 class Library
   attr_reader :books
@@ -7,7 +8,8 @@ class Library
     @books = []
   end
 
-  def add_book(book)
+  def add_book(author, title)
+    book = Book.new(author,title)
     @books << book
   end
 
