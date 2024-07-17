@@ -7,6 +7,10 @@ class Library
     @books = []
   end
 
+  def add_book(book)
+    @books << book
+  end
+
 end
 
 # irb -r ./library.rb
