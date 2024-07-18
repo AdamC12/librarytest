@@ -1,15 +1,17 @@
 # frozen_string_literal: true
 require './book.rb'
+require './member.rb'
 
 class Library
-  attr_reader :books
+  attr_reader :books, :members
 
   def initialize
     @books = []
     @members = []
   end
 
-  def register_member(member)
+  def register_member(member_name)
+    member = Member.new(member_name)
     @members << member
   end
 
