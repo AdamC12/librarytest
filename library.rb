@@ -16,8 +16,13 @@ class Library
   end
 
   def add_book(author, title)
-    book = Book.new(author, title)
-    @books << book
+    if @books.find { |book| book.author == author }
+      @books = Book.add_book_to_author(author, title, @books)
+    else
+      book = Book.new(author, title)
+      @books << book
+    end
+    @books
   end
 
 end
