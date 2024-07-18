@@ -39,6 +39,11 @@ class Library
     end
   end
 
+  def return_book(author, title)
+    add_book(author, title)
+    puts "#{title} by #{author} has been returned"
+  end
+
 end
 
 # irb -r ./library.rb
