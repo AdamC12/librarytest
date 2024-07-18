@@ -33,8 +33,13 @@ class Library
   end
 
   def return_book(author, title)
-    add_book(author, title)
-    puts "#{title} by #{author} has been returned"
+    @books.each do |book|
+      next unless book.author == author && book.title == title && book.status == 'borrowed'
+
+      book.status = 'available'
+      puts "#{title} by #{author} has been returned"
+      break
+    end
   end
 
 end
