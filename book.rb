@@ -6,13 +6,7 @@ class Book
 
   def initialize(author, title)
     @author = author
-    @titles = [title]
-  end
-  def self.add_book_to_author(author, title, books)
-    books.each do |book|
-      book.titles << title if book.author == author
-    end
-    books
+    @title = title
   end
 
 end
