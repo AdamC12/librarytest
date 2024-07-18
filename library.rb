@@ -25,7 +25,10 @@ class Library
   def borrow_book(author, title)
     @books.each do |book|
       next unless book.author == author && book.title == title
-    
+
+      book.status = 'borrowed'
+      puts "#{title} by #{author} has been borrowed"
+      break
     end
   end
 
