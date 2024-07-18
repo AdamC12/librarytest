@@ -42,6 +42,10 @@ class Library
     end
   end
 
+  def available_books
+    @books.map {|book| book.status == 'available'}
+  end
+
 end
 
 # irb -r ./library.rb
