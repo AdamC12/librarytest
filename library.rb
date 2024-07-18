@@ -43,9 +43,17 @@ class Library
   end
 
   def available_books
-    available_books = @books.select {|book| book.status == 'available'}
+    available_books = @books.select { |book| book.status == 'available' }
     puts "The following books are available for borrowing: \n"
     available_books.each do |book|
+      puts "#{book.title} by #{book.author}"
+    end
+  end
+
+  def borrowed_books
+    borrowed_books = @books.select { |book| book.status == 'borrowed' }
+    puts "The following books are already borrowed: \n"
+    borrowed_books.each do |book|
       puts "#{book.title} by #{book.author}"
     end
   end
