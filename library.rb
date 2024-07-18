@@ -22,11 +22,12 @@ class Library
     @books << book
   end
 
-  def borrow_book(author, title)
+  def borrow_book(author, title, member_id)
     @books.each do |book|
       next unless book.author == author && book.title == title
 
       book.status = 'borrowed'
+      book.member_id = member_id
       puts "#{title} by #{author} has been borrowed"
       break
     end
@@ -37,6 +38,7 @@ class Library
       next unless book.author == author && book.title == title && book.status == 'borrowed'
 
       book.status = 'available'
+      book.member_id = nil
       puts "#{title} by #{author} has been returned"
       break
     end
@@ -54,7 +56,7 @@ class Library
     borrowed_books = @books.select { |book| book.status == 'borrowed' }
     puts "The following books are already borrowed: \n"
     borrowed_books.each do |book|
-      puts "#{book.title} by #{book.author}"
+      puts "#{book.title} by #{book.author}, borrowed by: #{book.member_id}"
     end
   end
 
