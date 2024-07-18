@@ -43,7 +43,11 @@ class Library
   end
 
   def available_books
-    @books.map {|book| book.status == 'available'}
+    available_books = @books.select {|book| book.status == 'available'}
+    puts "The following books are available for borrowing: \n"
+    available_books.each do |book|
+      puts "#{book.title} by #{book.author}"
+    end
   end
 
 end
