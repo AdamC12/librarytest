@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require './book.rb'
 require './member.rb'
+require 'pry'
 
 class Library
   attr_reader :books, :members
@@ -23,6 +24,19 @@ class Library
       @books << book
     end
     @books
+  end
+
+  def borrow_book(author, title)
+    @books.each do |book|
+      next unless book.author == author
+
+      if book.titles.find { |book_title| book_title == title }
+        book.titles.delete(title)
+        puts "#{title} by #{author} has been borrowed"
+      else
+        puts "#{title} by #{author} is not available for borrowing!"
+      end
+    end
   end
 
 end
