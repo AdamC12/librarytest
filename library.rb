@@ -6,10 +6,15 @@ class Library
 
   def initialize
     @books = []
+    @members = []
+  end
+
+  def register_member(member)
+    @members << member
   end
 
   def add_book(author, title)
-    book = Book.new(author,title)
+    book = Book.new(author, title)
     @books << book
   end
 
