@@ -60,6 +60,14 @@ class Library
     end
   end
 
+  def borrowed_books_by_member(member_id)
+    member_books = @books.select { |book| book.status == 'borrowed' }
+    puts "member #{member_id} has borrowed:"
+    member_books.each do |book|
+      puts "#{book.title} by #{book.author}"
+    end
+  end
+
 end
 
 # irb -r ./library.rb
